@@ -1,0 +1,28 @@
+#!/bin/sh
+usage ()
+{
+        echo "Usage:"
+        echo "        myprog.sh [--clone|--extend|--help]"
+}
+case $1 in
+        --clone|-c)
+                xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1240x720
+                exit 0
+        
+        ;;
+        --extend|-e)
+                xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1240x720 --right-of LVSD1
+                exit 0
+        
+	;;
+        --help|-h)
+               usage 
+               exit 0 
+	;;  
+-*)
+                echo "No such option $1"
+                usage
+                exit 1
+        ;;
+esac
+
